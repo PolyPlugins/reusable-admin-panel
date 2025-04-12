@@ -57,6 +57,21 @@ This is purely for developers to help streamline their development process by ma
 
 # Changelog
 
+## 1.0.7
+
+* Added: Ability to pass label attribute for those that don't want the default assigned name
+* Added: An optional step, min, and max attribute to number field
+* Added: Textarea rows attribute to allow larger height textarea
+* Added: Placeholder attribute to text, textarea, email, url, password, number, date and time fields
+* Added: Documentation for field usage to polyplugins.com/docs/reusable-admin-panel/
+* Added: Security enhancements
+* Updated: The color field to use sanitize_hex_color instead of sanitize_text_field
+* Bugfix: The "disabled" parameter was not available in dropdown type
+* Bugfix: Dropdown Toggle not setting equal label widths correctly
+* Bugfix: Support configuration is suppose to be optional
+* Bugfix: If type is left out of config, it provides no error.
+* Bugfix: If name is left out of config, it provides no error.
+
 ## 1.0.6
 
 * Added: Textarea input
