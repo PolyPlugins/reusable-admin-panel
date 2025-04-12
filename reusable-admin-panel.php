@@ -7,6 +7,8 @@
  * Author: Poly Plugins
  * Author URI: https://www.polyplugins.com
  * Plugin URI: https://wordpress.org/plugins/reusable-admin-panel/
+ * License: GPL3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 namespace PolyPlugins;
@@ -203,7 +205,7 @@ class Settings
    * @return void
    */
   public function admin_setup() {
-    $page = (isset($_GET['page'])) ? sanitize_text_field($_GET['page']) : '';
+    $page = (isset($_GET['page'])) ? sanitize_text_field(wp_unslash($_GET['page'])) : '';
 
     // Let's only run this on the plugin's page to reduce resource usage
     if($page == $this->plugin_slug) {
@@ -250,7 +252,7 @@ class Settings
   public function admin_enqueue() {
     global $pagenow;
 
-    $page = (isset($_GET['page'])) ? sanitize_text_field($_GET['page']) : '';
+    $page = (isset($_GET['page'])) ? sanitize_text_field(wp_unslash($_GET['page'])) : '';
 
     // Let's only run this on the plugin's page to reduce the number of scripts that need to load and prevent conflicts.
     if($page == $this->plugin_slug) {
@@ -378,7 +380,7 @@ class Settings
           </nav>
           <nav class="nav flex-column">
             <?php foreach ($sections as $section) : ?>
-              <a class="nav-link<?php echo ($sections[0] == $section) ? ' active' : ''; ?>" href="#<?php echo esc_attr($section); ?>" selected-section="<?php echo esc_attr($section); ?>"><?php echo str_replace('-', ' ', esc_html($section)); ?></a>
+              <a class="nav-link<?php echo ($sections[0] == $section) ? ' active' : ''; ?>" href="#<?php echo esc_attr($section); ?>" selected-section="<?php echo esc_attr($section); ?>"><?php echo esc_html(str_replace('-', ' ', $section)); ?></a>
             <?php endforeach; ?>
             <?php if ($this->config['support']) : ?>
               <a class="nav-link" href="<?php echo esc_url($this->config['support']); ?>" target="_blank">Support</a>
@@ -789,7 +791,7 @@ class Settings
         <?php foreach ($option_field as $toggle_option => $toggle_option_field) : ?>
           <?php $toggle_option_field['section'] = $section; ?>
           <?php $toggle_option_field['class']   = $toggle_option_field['class'] ? sanitize_title($toggle_option) : ''; ?>
-          <div class="input-group togglable <?php echo esc_attr(strtolower($option)); ?> <?php echo $toggle_option_field['class']; ?> ">
+          <div class="input-group togglable <?php echo esc_attr(strtolower($option)); ?> <?php echo esc_attr($toggle_option_field['class']); ?> ">
             <?php call_user_func( array( $this, 'callback_' . $toggle_option_field['type'] ), $toggle_option_field ); ?>
           </div>
         <?php endforeach; ?>

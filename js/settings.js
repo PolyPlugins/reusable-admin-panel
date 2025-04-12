@@ -210,6 +210,7 @@
       // Dropdown Toggle Change Handling
       $('.toggle-select').on('change', function() {
         let dropdown_value = $(this).val().toLowerCase();
+        let section        = $(this).closest('[section]').attr('section');
 
         $(this).parent().parent().find('.togglable').each(function() {
           $(this).hide();
@@ -222,25 +223,32 @@
             $(this).css("margin-bottom", 0)
           }
         });
+
+        // Lets set the group width
+        inputGroupEqualWidth(section);
       });
     }
-
+    
     function inputGroupEqualWidth(selected_section = '') {
       let input_group_text_max_width = 0;
       let $active_tab = $(".nav-link.active").attr('selected-section');
-      let $selected_section_inputs = selected_section ? $("[section='" + selected_section + "'] .input-group-text") : $("[section='" + $active_tab + "'] .input-group-text");
-
-      $($selected_section_inputs).each(function() {
-        let input_group_width = $(this).innerWidth();
-
+    
+      let $selected_section_inputs = selected_section
+        ? $("[section='" + selected_section + "']").find('.input-group-text:visible')
+        : $("[section='" + $active_tab + "']").find('.input-group-text:visible');
+    
+      $selected_section_inputs.css("width", "auto");
+    
+      $selected_section_inputs.each(function() {
+        let input_group_width = $(this).outerWidth();
+    
         if (input_group_width > input_group_text_max_width) {
           input_group_text_max_width = input_group_width;
         }
       });
-
+    
       if ($selected_section_inputs.length > 1) {
-        $($selected_section_inputs).css("width");
-        $($selected_section_inputs).css("width", input_group_text_max_width);
+        $selected_section_inputs.css("width", input_group_text_max_width + "px");
       }
     }
 
