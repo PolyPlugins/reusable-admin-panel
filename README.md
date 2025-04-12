@@ -4,7 +4,9 @@
 
 Our goal was to create a reuseable admin panel that can be used by various plugins without having to build or include classes of the same code in multiple plugins, while at the same time being quick to setup.
 
-Download the [example plugin](https://www.polyplugins.com/reusable-admin-panel-example-plugin/) to get up and running as quick as possible.
+View our [Documentation](https://www.polyplugins.com/docs/reusable-admin-panel/) to see a list of fields and their parameters.
+
+You can also download our [example plugin](https://www.polyplugins.com/reusable-admin-panel-example-plugin/) to get up and running as quick as possible.
 
 ## Is this on the WordPress Repository?
 Yes, we do have it listed on the [WordPress Repository](https://wordpress.org/plugins/reusable-admin-panel/). We had a few suggestions come our way and wanted to make it easier for those that wanted to contribute to making Reusable Admin Panel even more awesome.

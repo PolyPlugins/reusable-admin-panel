@@ -1,0 +1,16 @@
+# Exclude hidden files
+.git
+
+# Exclude development and build files
+node_modules/
+composer.lock
+package-lock.json
+webpack.config.js
+
+# Exclude test files
+tests/
+phpunit.xml
+
+# Exclude local environment files
+.env
+*.log
