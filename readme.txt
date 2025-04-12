@@ -3,7 +3,7 @@ Contributors: polyplugins
 Tags: admin, developer, developer tool, extendable admin, beautiful admin
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -16,7 +16,9 @@ A settings class to help developers easily add beautiful admin pages and handle 
 
 Our goal was to create a reuseable admin panel that can be used by various plugins without having to build or include classes of the same code in multiple plugins, while at the same time being quick to setup.
 
-Download the [example plugin](https://www.polyplugins.com/reusable-admin-panel-example-plugin/) to get up and running as quick as possible.
+View our [Documentation](https://www.polyplugins.com/docs/reusable-admin-panel/) to see a list of fields and their parameters.
+
+You can also download our [example plugin](https://www.polyplugins.com/reusable-admin-panel-example-plugin/) to get up and running as quick as possible.
 
 Have suggestions? Submit a Pull Requests via [Github](https://github.com/PolyPlugins/Reusable-Admin-Panel).
 
@@ -37,7 +39,7 @@ Fields:
 
 * Switch
 * Text
-* [NEW] Textarea
+* Textarea
 * Email
 * URL
 * Password
@@ -71,6 +73,20 @@ This is purely for developers to help streamline their development process by ma
 3. Warning on deactivation
 
 == Changelog ==
+
+= 1.0.7 =
+
+* Added: Security enhancements
+* Added: Ability to pass label attribute for those that don't want the default assigned name
+* Added: An optional step, min, and max attribute to number field
+* Added: Textarea rows attribute to allow larger height textarea
+* Added: Placeholder attribute to text, textarea, email, url, password, number, date and time fields
+* Updated: The color field to use sanitize_hex_color instead of sanitize_text_field
+* Bugfix: The "disabled" parameter was not available in dropdown type
+* Bugfix: Dropdown Toggle not setting equal label widths correctly
+* Bugfix: Support configuration is suppose to be optional
+* Bugfix: If type is left out of config, it provides no error.
+* Bugfix: If name is left out of config, it provides no error.
 
 = 1.0.6 =
 

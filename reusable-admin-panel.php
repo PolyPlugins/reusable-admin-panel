@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Reusable Admin Panel
  * Description: A settings class to help developers easily add beautiful admin pages and handle getting, sanitizing, and saving options.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Poly Plugins
  * Author URI: https://www.polyplugins.com
  * Plugin URI: https://wordpress.org/plugins/reusable-admin-panel/
