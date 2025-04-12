@@ -1,8 +1,8 @@
 === Reusable Admin Panel ===
 Contributors: polyplugins
-Tags: admin, admin panel, reusable admin panel, plugin panel, developer, developer tool, extendable admin, extendable admin panel, beautiful admin, dev tool
+Tags: admin, developer, developer tool, extendable admin, beautiful admin
 Requires at least: 4.0
-Tested up to: 6.4.2
+Tested up to: 6.7
 Stable tag: 1.0.6
 Requires PHP: 5.4
 License: GPLv3
