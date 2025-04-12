@@ -477,7 +477,7 @@ class Settings
       'dropdown_toggle' => 'sanitize_text_field',
       'date'            => 'sanitize_text_field',
       'time'            => 'sanitize_text_field',
-      'color'           => 'sanitize_text_field',
+      'color'           => 'sanitize_hex_color',
     );
 
     if (key_exists($type, $sanitize_callbacks)) {
