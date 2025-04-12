@@ -382,7 +382,7 @@ class Settings
             <?php foreach ($sections as $section) : ?>
               <a class="nav-link<?php echo ($sections[0] == $section) ? ' active' : ''; ?>" href="#<?php echo esc_attr($section); ?>" selected-section="<?php echo esc_attr($section); ?>"><?php echo esc_html(str_replace('-', ' ', $section)); ?></a>
             <?php endforeach; ?>
-            <?php if ($this->config['support']) : ?>
+            <?php if (isset($this->config['support'])) : ?>
               <a class="nav-link" href="<?php echo esc_url($this->config['support']); ?>" target="_blank">Support</a>
             <?php endif; ?>
           </nav>
