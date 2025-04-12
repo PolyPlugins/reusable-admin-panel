@@ -707,6 +707,9 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
+    $min      = (isset($field['min']) && is_numeric($field['min'])) ? $field['min'] : '';
+    $max      = (isset($field['max']) && is_numeric($field['max'])) ? $field['max'] : '';
+    $step     = (isset($field['step']) && is_numeric($field['step'])) ? $field['step'] : '';
     $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
@@ -717,7 +720,7 @@ class Settings
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="number" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="number" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?><?php echo $step ? ' step="' . esc_html($step) . '"' : ''; ?><?php echo $min ? ' min="' . esc_html($min) . '"' : ''; ?><?php echo $max ? ' max="' . esc_html($max) . '"' : ''; ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
