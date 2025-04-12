@@ -595,6 +595,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
+    $rows     = (isset($field['rows']) && is_numeric($field['rows'])) ? $field['rows'] : '';
     $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
@@ -605,7 +606,7 @@ class Settings
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <textarea class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>"<?php echo esc_attr($required); ?>><?php echo esc_html($value); ?></textarea>
+      <textarea class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>"<?php echo esc_attr($required); ?><?php echo $rows ? ' rows="' . esc_html($rows) . '"' : ''; ?>><?php echo esc_html($value); ?></textarea>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
