@@ -500,7 +500,9 @@ class Settings
    */
   public function add_field($field) {
     if (!isset($field['type'])) {
-      echo '<div style="color: var(--settings-validation-bg); margin-bottom: 20px;">Error: Field type not provided for:<br />' . esc_html(print_r($field, true)) . '</div>';
+      echo '<div style="color: var(--settings-validation-bg); margin-bottom: 20px;">Error: The "type" parameter was not provided for<br />' . esc_html(print_r($field, true)) . '</div>';
+    } else if (!isset($field['name'])) {
+      echo '<div style="color: var(--settings-validation-bg); margin-bottom: 20px;">Error: The "name" parameter was not provided for<br />' . esc_html(print_r($field, true)) . '</div>';
     }
 
     call_user_func( array( $this, 'callback_' . $field['type'] ), $field );
