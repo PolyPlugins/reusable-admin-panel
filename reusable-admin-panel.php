@@ -541,12 +541,12 @@ class Settings
    * @return void
    */
   public function callback_button($field) {
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $section  = $field['section'];
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
+    $section = $field['section'];
+    $name    = sanitize_title($field['name']);
+    $label   = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $id      = $section . '-' . $name;
+    $section = $field['section'];
+    $class   = $field['class'] ? sanitize_title($field['class']) : '';
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
@@ -564,20 +564,21 @@ class Settings
    * @return void
    */
   public function callback_text($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="text" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_html($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="text" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" value="<?php echo esc_html($value); ?>"<?php echo esc_attr($required); ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -592,21 +593,22 @@ class Settings
    * @return void
    */
   public function callback_textarea($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $rows     = (isset($field['rows']) && is_numeric($field['rows'])) ? $field['rows'] : '';
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $rows        = (isset($field['rows']) && is_numeric($field['rows'])) ? $field['rows'] : '';
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <textarea class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>"<?php echo esc_attr($required); ?><?php echo $rows ? ' rows="' . esc_html($rows) . '"' : ''; ?>><?php echo esc_html($value); ?></textarea>
+      <textarea class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>"<?php echo esc_attr($required); ?><?php echo $rows ? ' rows="' . esc_html($rows) . '"' : ''; ?>><?php echo esc_html($value); ?></textarea>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -621,20 +623,21 @@ class Settings
    * @return void
    */
   public function callback_email($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="email" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="email" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -649,20 +652,21 @@ class Settings
    * @return void
    */
   public function callback_url($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="url" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="https://www.example.com" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="url" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo $placeholder ? esc_html($placeholder) : 'https://www.example.com'; ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -677,20 +681,21 @@ class Settings
    * @return void
    */
   public function callback_password($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required'] ) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required'] ) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="password" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="password" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -705,23 +710,24 @@ class Settings
    * @return void
    */
   public function callback_number($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $min      = (isset($field['min']) && is_numeric($field['min'])) ? $field['min'] : '';
-    $max      = (isset($field['max']) && is_numeric($field['max'])) ? $field['max'] : '';
-    $step     = (isset($field['step']) && is_numeric($field['step'])) ? $field['step'] : '';
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $min         = (isset($field['min']) && is_numeric($field['min'])) ? $field['min'] : '';
+    $max         = (isset($field['max']) && is_numeric($field['max'])) ? $field['max'] : '';
+    $step        = (isset($field['step']) && is_numeric($field['step'])) ? $field['step'] : '';
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="number" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?><?php echo $step ? ' step="' . esc_html($step) . '"' : ''; ?><?php echo $min ? ' min="' . esc_html($min) . '"' : ''; ?><?php echo $max ? ' max="' . esc_html($max) . '"' : ''; ?>>
+      <input type="number" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?><?php echo $step ? ' step="' . esc_html($step) . '"' : ''; ?><?php echo $min ? ' min="' . esc_html($min) . '"' : ''; ?><?php echo $max ? ' max="' . esc_html($max) . '"' : ''; ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -818,20 +824,21 @@ class Settings
    * @return void
    */
   public function callback_date($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="date" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="date" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
@@ -846,20 +853,21 @@ class Settings
    * @return void
    */
   public function callback_time($field) {
-    $settings = $this->settings;
-    $section  = $field['section'];
-    $name     = sanitize_title($field['name']);
-    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
-    $id       = $section . '-' . $name;
-    $class    = $field['class'] ? sanitize_title($field['class']) : '';
-    $type     = $field['type'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $required = (isset($field['required']) && $field['required']) ? ' required' : '';
-    $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
+    $settings    = $this->settings;
+    $section     = $field['section'];
+    $name        = sanitize_title($field['name']);
+    $label       = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
+    $placeholder = isset($field['placeholder']) && $field['placeholder'] ? $field['placeholder'] : $field['label'];
+    $id          = $section . '-' . $name;
+    $class       = $field['class'] ? sanitize_title($field['class']) : '';
+    $type        = $field['type'];
+    $default     = ($field['default']) ? $field['default'] : '';
+    $required    = (isset($field['required']) && $field['required']) ? ' required' : '';
+    $value       = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <input type="time" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($label); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
+      <input type="time" class="form-control <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" placeholder="<?php echo esc_attr($placeholder); ?>" value="<?php echo esc_attr($value); ?>"<?php echo esc_attr($required); ?>>
       
       <!-- Display a info button which displays a toast when clicked -->
       <?php $this->helper($field['help']); ?>
