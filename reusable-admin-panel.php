@@ -518,7 +518,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) & $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -543,7 +543,7 @@ class Settings
   public function callback_button($field) {
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $section  = $field['section'];
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
@@ -567,7 +567,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -595,7 +595,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -623,7 +623,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -651,7 +651,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -679,7 +679,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -707,7 +707,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -735,7 +735,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -770,7 +770,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -817,7 +817,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -845,7 +845,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -873,7 +873,7 @@ class Settings
     $settings = $this->settings;
     $section  = $field['section'];
     $name     = sanitize_title($field['name']);
-    $label    = $field['name'];
+    $label    = isset($field['label']) && $field['label'] ? $field['label'] : $field['name'];
     $id       = $section . '-' . $name;
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
@@ -890,6 +890,7 @@ class Settings
     </div>
     <?php
   }
+
   /**
    * A custom callback built to handle error messages
    *
