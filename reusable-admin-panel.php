@@ -743,14 +743,14 @@ class Settings
     $class    = $field['class'] ? sanitize_title($field['class']) : '';
     $type     = $field['type'];
     $options  = $field['options'];
-    $default  = ($field['default']) ? $field['default'] : '';
-    $disabled = ($field['disabled']) ? $field['disabled'] : '';
+    $default  = $field['default'] ? $field['default'] : '';
+    $disabled = $field['disabled'] ? $field['disabled'] : '';
     $required = (isset($field['required']) && $field['required']) ? ' required' : '';
     $value    = (!empty($settings[$section][$name]['value'])) ? $settings[$section][$name]['value'] : $default;
     ?>
     <div class="input-group">
       <label class="input-group-text" for="<?php echo esc_attr($id); ?>"><?php echo esc_html($label); ?></label>
-      <select class="form-select <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" aria-label="<?php echo esc_attr($label); ?>"<?php echo esc_attr($required); ?>>
+      <select class="form-select <?php echo esc_attr($class); ?>" name="<?php echo esc_attr($this->settings_name) . '[' . esc_attr($section) . '][' . esc_attr($name) . '][' . esc_attr($type) . ']'; ?>" id="<?php echo esc_attr($id); ?>" aria-label="<?php echo esc_attr($label); ?>"<?php echo esc_attr($required); ?><?php echo $disabled ? " disabled" : ''; ?>>
         <option value="" disabled selected>Select Option</option>
         <?php foreach ($options as $option) : ?>
           <option value="<?php echo esc_attr($option); ?>" <?php echo ($option == $value) ? ' selected' : ''; ?>><?php echo esc_html($option); ?></option>
