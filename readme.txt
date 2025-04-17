@@ -2,7 +2,7 @@
 Contributors: polyplugins
 Tags: admin, developer, developer tool, extendable admin, beautiful admin
 Requires at least: 4.0
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 1.0.7
 Requires PHP: 5.4
 License: GPLv3
