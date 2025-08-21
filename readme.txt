@@ -12,6 +12,11 @@ A settings class to help developers easily add beautiful admin pages and handle 
 
 == Description ==
 
+== Update ==
+With the updated release of [Settings Class for WordPress](https://github.com/PolyPlugins/Settings-Class-for-Wordpress), we do not plan to add new features to this plugin. We will continue to provide fixes, but adding new functionality would make it difficult to maintain as it would need to be fully backwards compatible.
+
+Settings Class for WordPress may include breaking changes, but it does not auto update, so you won't have to worry about plugins breaking unexpectedly. You can take your time to migrate to the new version, and any breaking changes will be reserved for major releases.
+
 <img src="https://www.polyplugins.com/plugins/reusable-admin-panel/preview.gif" alt="Reusable Admin Panel Preview" />
 
 Our goal was to create a reuseable admin panel that can be used by various plugins without having to build or include classes of the same code in multiple plugins, while at the same time being quick to setup.
@@ -22,7 +27,7 @@ You can also download our [example plugin](https://www.polyplugins.com/reusable-
 
 Have suggestions? Submit a Pull Requests via [Github](https://github.com/PolyPlugins/Reusable-Admin-Panel).
 
-Features:
+== Features ==
 
 * Bootstrap
 * Font-Awesome Field Info Buttons and Sidebar Info Helper
@@ -35,7 +40,7 @@ Features:
 * Removes notices from other plugins when displaying admin panel
 * Prevent users from deactivating by displaying a [sweetalert2](https://sweetalert2.github.io) to deactivate the plugin using the dependency.
 
-Fields:
+== Fields ==
 
 * Switch
 * Text
