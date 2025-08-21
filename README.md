@@ -1,3 +1,8 @@
+## Update
+With the updated release of [Settings Class for WordPress](https://github.com/PolyPlugins/Settings-Class-for-Wordpress), we do not plan to add new features to this plugin. We will continue to provide fixes, but adding new functionality would make it difficult to maintain as it would need to be fully backwards compatible.
+
+Settings Class for WordPress may include breaking changes, but it does not auto update, so you won't have to worry about plugins breaking unexpectedly. You can take your time to migrate to the new version, and any breaking changes will be reserved for major releases.
+
 ## About
 
 <img src="https://www.polyplugins.com/plugins/reusable-admin-panel/preview.gif" alt="Reusable Admin Panel Preview" />
